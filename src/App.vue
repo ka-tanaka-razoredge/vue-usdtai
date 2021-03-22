@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ListView></ListView>
+    <ListView ref="list_view" @arrive="doIt"></ListView>
   </div>
 </template>
 
@@ -9,8 +9,31 @@
 
 export default {
   name: "App",
+  timer: {
+  },
+  tc: 0,
+  props: {
+  },
+  methods: {
+    doIt: function() {
+      console.log('App.methods.doIt');
+    }
+  },
   components: {
     ListView
+  },
+  created: function() {
+    const doRoutine = (function (e) {
+      if (this.tc == 3) {
+//        this.$emit('arrive');
+//        console.log('here');
+        this.$refs.list_view.dispatchEvent(new CustomEvent('arrive', null));
+      }
+      this.tc++;
+    }).bind(this);
+    this.tc = 0;
+    this.timer = setInterval(doRoutine, 1000);
+    console.log(this);
   }
 };
 </script>
