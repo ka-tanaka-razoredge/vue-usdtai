@@ -13,7 +13,7 @@
   methods: {
     dispatchEvent: function(e) {
       console.log(this);
-      this.$refs.lv.dispatchEvent(new CustomEvent('arrive', null));
+      this.$refs.lv.dispatchEvent(e);
     },
     doIt: function(e) {
     },
