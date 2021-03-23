@@ -24,7 +24,7 @@ export default {
   },
   created: function() {
     const doRoutine = (function (e) {
-      if (this.tc == 3) {
+      if (this.tc == 2) {
 //        this.$emit('arrive');
 //        console.log('here');
         this.$refs.list_view.dispatchEvent(new CustomEvent('arrive', null));

@@ -26,13 +26,16 @@
       handle: function(e) {
         let vueInstance = createApp({});
         vueInstance.component('Item', {
-          template: '<div>item</div>',
+          template: '<div ref="i">item</div>',
         });
+
         let div = document.createElement('div');
         div.id = "item";
         div.innerHTML = 'innerHTML';
-//        this.$refs.lv.appendChild(vueInstance.$el);
-        vueInstance.mount(this);
+        this.$refs.lv.appendChild(div);
+
+        vueInstance.mount('#lv');
+       
       }
     },
     mounted: function() {
