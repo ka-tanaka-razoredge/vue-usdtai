@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import {createApp, defineComponent} from 'vue';
+  import Vue, {createApp, defineComponent} from 'vue';
   import Item from './Item.vue';
 
   export default {
@@ -24,19 +24,12 @@
       doIt: function(e) {
       },
       handle: function(e) {
-        let vueInstance = createApp({});
-        vueInstance.component('Item', {
-          template: '<div ref="i">item</div>',
-        });
-
         let div = document.createElement('div');
         div.id = "item";
         div.innerHTML = 'innerHTML';
         this.$refs.lv.appendChild(div);
-
-        vueInstance.mount('#lv');
-       
-      }
+        let item = createApp(Item).mount('#item');
+      },
     },
     mounted: function() {
     }

@@ -5,26 +5,29 @@
 </template>
 
 <script>
-  import {ref, defineComponent} from 'vue';
+  import {ref, onMounted, defineComponent} from 'vue';
 
-  export default defineComponent({
+  export default {
     name: "Item",
     props: {
       id: ""
     },
-    methods: {
-      getDiv: function() {
-        return this.$refs.item.$el;
-      }
+    setup() {
+      const item = ref(null);
+
+      onMounted(() => {
+        console.log("mounted");
+//        console.log(item.value);
+      });
+
+
+      const getDiv = () => {
+        console.log("------------");
+        console.log(this);
+        console.log(item);
+        return item;
+      };
+      return {item, getDiv};
     },
-    mounted: (e) => {
-      console.log(this.$refs.item);
-    },
-    getDiv: function() {
-      console.log(this);
-      console.log(this.$refs);
-      return this.$refs;
-    }
-    
-  });
+  };
 </script>
