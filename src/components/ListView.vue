@@ -28,7 +28,8 @@
         div.id = "item";
         div.innerHTML = 'innerHTML';
         this.$refs.lv.appendChild(div);
-        let item = createApp(Item).mount('#item');
+
+        createApp(Item, {id: 'ID'}).mount('#item');
       },
     },
     mounted: function() {

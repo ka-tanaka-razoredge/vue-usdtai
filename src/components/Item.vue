@@ -12,13 +12,17 @@
     props: {
       id: ""
     },
-    setup() {
+    setup(props) {
       const item = ref(null);
+
+      console.log(props);
+      const id = props.id;
 
       onMounted(() => {
         console.log("mounted");
 //        console.log(item.value);
       });
+
 
 
       const getDiv = () => {
@@ -27,7 +31,7 @@
         console.log(item);
         return item;
       };
-      return {item, getDiv};
+      return {item, getDiv, id};
     },
   };
 </script>
